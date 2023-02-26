@@ -35,7 +35,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
       <div class="humberger__menu__logo">
-        <a href="#"><img src="{{ asset('frontend/img/logo.png') }}" alt="" /></a>
+
       </div>
       <div class="humberger__menu__cart">
         <ul>
@@ -58,7 +58,7 @@
             <div class="header__top__right__auth" style="margin-left: 20px">
               <a href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
             </div>
-          @else 
+          @else
           <div class="header__top__right__language">
             <div class="header__top__right__auth">
               <a href=""><i class="fa fa-user"></i> {{ auth()->user()->username }}</a>
@@ -71,7 +71,7 @@
           <div class="header__top__right__auth" style="margin-left: 20px">
             <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-user"></i> Logout</a>
             <form action="{{ route('logout') }}" id="logout-form" method="post">
-              @csrf 
+              @csrf
 
             </form>
           </div>
@@ -79,7 +79,7 @@
       </div>
       <nav class="humberger__menu__nav mobile-menu">
         <ul>
-          <li class="active"><a href="/">Home</a></li>
+          <li class="active"><a href="/"></a></li>
           <li><a href="{{ route('shop.index') }}">Shop</a></li>
           <li>
             <a href="#">Categories</a>
@@ -135,7 +135,7 @@
                       <a href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
                     </div>
                 </div>
-                @else 
+                @else
                 <div class="header__top__right">
                 <div
                   class="header__top__right__language header__top__right__auth"
@@ -151,7 +151,7 @@
                 <div class="header__top__right__auth">
                   <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit()"><i class="fa fa-user"></i> Logout</a>
                   <form action="{{ route('logout') }}" id="logout-form" method="post">
-                    @csrf                   
+                    @csrf
                   </form>
                 </div>
               </div>
