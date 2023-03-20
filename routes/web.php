@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,20 +40,20 @@ Route::get('api/users', [\App\Http\Controllers\UserController::class, 'index']);
 
 
 Route::group(['middleware' => 'auth'], function() {
-    
+
     Route::get('/order/checkout', [\App\Http\Controllers\OrderController::class, 'process'])->name('checkout.process');
     Route::resource('/cart', \App\Http\Controllers\CartController::class)->except(['store', 'show']);
 
     Route::group(['middleware' => ['isAdmin'],'prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-       
+
         // categories
         Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::post('categories/images', [\App\Http\Controllers\Admin\CategoryController::class,'storeImage'])->name('categories.storeImage');
-    
+
         // tags
         Route::resource('tags', \App\Http\Controllers\Admin\TagController::class);
-    
+
         // products
         Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
         Route::post('products/images', [\App\Http\Controllers\Admin\ProductController::class,'storeImage'])->name('products.storeImage');
